@@ -1,0 +1,90 @@
+
+   
+    <header>
+      <div class="heading">
+        <h1 class="title">THE アシュラ帝国</h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>アシュラ帝国とは？</li>
+          <li>アダム君一覧</li>
+          <li>ギャラリー</li>
+          <li>アクセス</li>
+          <li>Youtube</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+        <%= image_tag 'hero.jpg', class: "top-image" %>
+        <%# <img src="app/assets/images/hero.jpg" alt="トップ画面" class="top-image"> %>
+      </div>
+      <div class="upper-content">
+        <h2 class="heading-name">新着情報</h2>
+        <ul class="messages">
+          <%# <li class="message"> %>
+            <%# <div class="message-date">2019/10/06</div> %>
+            <%# <div>【新規のお客さま限定】<b>10％OFF</b>キャンペーン</div> %>
+          <%# </li> %>
+
+          <% @posts.each do |post| %>
+            <li class="message">
+              <div class="message-date">
+                <%= post.created_at.to_s(:datetime) %>
+              </div>
+              <div>
+                <%= post.test %>
+              </div>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+      <div class="middle-content">
+        <h2 class="heading-name">スタイリスト紹介</h2>
+        <ul class="stylist-list">
+          <li>
+            <%# <img src="/images/staff1.jpg" alt="staff1" class="stylist-image"> %>
+            <%= image_tag 'staff1.jpg', class: "stylist-image" %>
+            <h4 class="stylist-name">鈴木</h4>
+          </li>
+          <li>
+            <%# <img src="/images/staff2.jpg" alt="staff2" class="stylist-image"> %>
+            <%= image_tag 'staff2.jpg', class: "stylist-image" %>
+            <h4 class="stylist-name">佐藤</h4>
+          </li>
+          <li>
+            <%# <img src="images/staff3.jpg" alt="staff3" class="stylist-image"> %>
+            <%= image_tag 'staff3.jpg', class: "stylist-image" %>
+            <h4 class="stylist-name">山田</h4>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+
+        <%= form_with url: '/posts', method: :post, local: true do |form| %>
+          <div class="contact-form">
+            <h2 class="heading-name">メールで予約</h2>
+            <%= form.text_field :name, class: "small-field", placeholder: "name" %>
+            <%= form.text_field :e_mail, class: "small-field", placeholder: "e-mail" %>
+            <%= form.text_area :message, class: "large-field", placeholder: "message" %>
+           <%= form.submit "送信", class: "send" %>
+          </div>
+        <% end %>
+
+        <%# <form class="contact-form"> %>
+          <%# <h2 class="heading-name">メールで予約</h2> %>
+          <%# <input type="text" placeholder="name" class="small-field"> %>
+          <%# <input type="text" placeholder="e-mail" class="small-field"> %>
+          <%# <textarea placeholder="message" class="large-field"></textarea> %>
+          <%# <input type="submit" value="SEND" class="send"> %>
+        <%# </form> %>
+      </div>
+
+    </div>
+
+    <footer>
+    </footer>
+
