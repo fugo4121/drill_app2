@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   post 'posts', to: 'posts#create' 
 
   root to: 'posts#index'
-   12
+   123
 
 end
