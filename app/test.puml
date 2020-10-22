@@ -1,0 +1,23 @@
+@startuml EntityRelationship
+
+package "MySQL" as target_system <<Database>> {
+
+    entity "USERS" as users {
+        + USER_ID [PK]
+        --
+        nickname
+        e_mail
+        password
+        password_
+        あああ
+       }
+
+
+    }
+
+users --right--o{ portfolios
+portfolios -down-|{ portfolios_images
+portfolios -down-|{ portfolios_skills
+portfolios --|{ portfolios_urls
+
+@enduml
